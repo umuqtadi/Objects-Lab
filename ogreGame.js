@@ -6,7 +6,7 @@ const adventurer = {
     name: 'Batman',
     hp: 100,
     attack: function(enemy) {
-        enemy - 10;
+        return enemy.hp -= 10;
     }
 }
 
@@ -14,16 +14,17 @@ const ogre = {
     name: 'Bane',
     hp: 75,
     attack: function(enemy) {
-        enemy - 7;
+        return enemy.hp -= 7;
     }
 }
 
 function game(player1, opponent) {
-    while(player1.hp > 0 || opponent.hp > 0) {
-        player1.attack(opponent.hp);
-        opponent.attack(player1.hp);
+    while(player1.hp > 0 && opponent.hp > 0) {
+        player1.attack(opponent);
+        opponent.attack(player1);
         console.log(`Currently ${player1.name} HP is: ${player1.hp}. ${opponent.name} HP is: ${opponent.hp}.`);
     }
+    return
 }
 
 game(adventurer, ogre);
