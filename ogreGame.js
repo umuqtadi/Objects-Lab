@@ -4,7 +4,7 @@
 
 const adventurer = {
     name: 'Batman',
-    hp: 100,
+    hp: 60,
     attack: function(enemy) {
         return enemy.hp -= 10;
     }
@@ -18,11 +18,17 @@ const ogre = {
     }
 }
 
+// This function takes both objects as parameters and runs the attack function until one has no more hp
 function game(player1, opponent) {
     while(player1.hp > 0 && opponent.hp > 0) {
         player1.attack(opponent);
         opponent.attack(player1);
         console.log(`Currently ${player1.name} HP is: ${player1.hp}. ${opponent.name} HP is: ${opponent.hp}.`);
+        if(player1.hp <= 0) {
+            console.log(`${opponent.name} wins!!`)
+        } else if(opponent.hp <= 0) {
+            console.log(`${player1.name} wins!!`)
+        }
     }
     return
 }
