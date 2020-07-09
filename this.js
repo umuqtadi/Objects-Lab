@@ -86,3 +86,17 @@ const player = {
 
 player.keepScore(10);
 console.log(player.score);
+
+const movie = {
+    title: 'Eraserhead',
+    director: 'David Lynch',
+    year: 1978
+}
+
+for(let key in movie) {
+    console.log(key)
+}
+
+for(let key in movie) {
+    console.log(movie[key]);
+}
