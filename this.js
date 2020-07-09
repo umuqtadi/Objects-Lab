@@ -38,3 +38,51 @@ garcia.speak();
 garcia.letsPlay = () => {console.log('La daaa da, La daa, da, da')}
 
 garcia.letsPlay();
+
+
+const foo = {
+    value: 12,
+    getValue() {
+        return this.value;
+    }
+}
+
+console.log(foo.getValue());
+
+const person = {
+    name: 'Umar',
+    getName: function() {
+        return this.name;
+    }
+}
+
+console.log(person.getName());
+
+
+const game = {
+    timer: 10,
+    start(){
+        const gameTimer = setInterval( () => {
+          console.log('hi', this)
+          this.timer -= 1;
+
+        if(this.timer <=0) {
+            console.log('GAMEOVER')
+        }
+        }, 1000);
+      },
+}
+
+// game.start()
+
+const player = {
+    score: 10,
+    name: 'Umar',
+    lives: 3,
+    keepScore: (number) => {
+        this.score += number
+    }
+}
+
+player.keepScore(10);
+console.log(player.score);
