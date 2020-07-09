@@ -83,7 +83,7 @@ const player = {
         this.score += number
     }
 }
-
+// this is used to refer to an object itself
 player.keepScore(10);
 console.log(player.score);
 
